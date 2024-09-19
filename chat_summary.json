@@ -1,5 +1,11 @@
 [
     {
+        "role": "user",
+        "content": "Replace this component with a pong game using wasd controls",
+        "timestamp": "19092024195049",
+        "message_id": "guest19092024195048"
+    },
+    {
         "role": "makeinfinite",
         "content": "Can you describe the project a bit more?",
         "message_id": "project_init",
