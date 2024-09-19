@@ -1,5 +1,5 @@
 <template>
-  <div id="pong-game" class="max-w-6xl mx-auto px-4 sm:px-6 bg-white">
+  <div id="pong-game" style="min-height: 630px" class="max-w-6xl mx-auto px-4 sm:px-6 bg-white">
     <canvas id="pongCanvas" width="800" height="400" class="border border-purple-500 rounded-lg shadow-lg mx-auto"></canvas>
     <div class="text-center mt-4 text-lg text-purple-600">Use W/S keys for left paddle, Up/Down arrow keys for right paddle</div>
   </div>
