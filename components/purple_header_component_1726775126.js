@@ -21,47 +21,47 @@ INSTRUCTION: 3. Desktop sign-in and sign-up links on the right.
           <ul id="desktop-menu-links" class="flex grow justify-center flex-wrap items-center">
             <li>
               <a
-                id="HEADER_NAVBAR_TEXT_1-link"
+                id="Home-link"
                 class="font-medium text-sm mx-4 lg:mx-5 transition duration-150 ease-in-out text-slate-300 hover:text-white"
-                href="HEADER_NAVBAR_TEXT_1.html"
+                href="Home.html"
               >
-                HEADER_NAVBAR_TEXT_1
+                Home
               </a>
             </li>
             <li>
               <a
-                id="HEADER_NAVBAR_TEXT_2-link"
+                id="Services-link"
                 class="font-medium text-sm mx-4 lg:mx-5 transition duration-150 ease-in-out text-slate-300 hover:text-white"
-                href="HEADER_NAVBAR_TEXT_2.html"
+                href="Services.html"
               >
-                HEADER_NAVBAR_TEXT_2
+                Services
               </a>
             </li>
             <li>
               <a
-                id="HEADER_NAVBAR_TEXT_3-link"
+                id="Book a Walk-link"
                 class="font-medium text-sm mx-4 lg:mx-5 transition duration-150 ease-in-out text-slate-300 hover:text-white"
-                href="HEADER_NAVBAR_TEXT_3.html"
+                href="Book a Walk.html"
               >
-                HEADER_NAVBAR_TEXT_3
+                Book a Walk
               </a>
             </li>
             <li>
               <a
-                id="HEADER_NAVBAR_TEXT_4-link"
+                id="Our Walkers-link"
                 class="font-medium text-sm mx-4 lg:mx-5 transition duration-150 ease-in-out text-slate-300 hover:text-white"
-                href="HEADER_NAVBAR_TEXT_4.html"
+                href="Our Walkers.html"
               >
-                HEADER_NAVBAR_TEXT_4
+                Our Walkers
               </a>
             </li>
             <li>
               <a
-                id="HEADER_NAVBAR_TEXT_5-link"
+                id="Contact-link"
                 class="font-medium text-sm mx-4 lg:mx-5 transition duration-150 ease-in-out text-slate-300 hover:text-white"
-                href="HEADER_NAVBAR_TEXT_5.html"
+                href="Contact.html"
               >
-                HEADER_NAVBAR_TEXT_5
+                Contact
               </a>
             </li>
           </ul>
@@ -118,19 +118,19 @@ INSTRUCTION: 3. Desktop sign-in and sign-up links on the right.
           >
             <ul id="mobile-nav-list" class="border border-transparent rounded-lg px-4 py-1.5 [background:linear-gradient(theme(colors.slate.900),_theme(colors.slate.900))_padding-box,_conic-gradient(theme(colors.slate.400),_theme(colors.slate.700)_25%,_theme(colors.slate.700)_75%,_theme(colors.slate.400)_100%)_border-box]">
               <li>
-                <a id="mobile-HEADER_NAVBAR_TEXT_1-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="HEADER_NAVBAR_TEXT_1.html">HEADER_NAVBAR_TEXT_1</a>
+                <a id="mobile-Home-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="Home.html">Home</a>
               </li>
               <li>
-                <a id="mobile-HEADER_NAVBAR_TEXT_2-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="HEADER_NAVBAR_TEXT_2.html">HEADER_NAVBAR_TEXT_2</a>
+                <a id="mobile-Services-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="Services.html">Services</a>
               </li>
               <li>
-                <a id="mobile-HEADER_NAVBAR_TEXT_3-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="HEADER_NAVBAR_TEXT_3.html">HEADER_NAVBAR_TEXT_3</a>
+                <a id="mobile-Book a Walk-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="Book a Walk.html">Book a Walk</a>
               </li>
               <li>
-                <a id="mobile-HEADER_NAVBAR_TEXT_4-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="HEADER_NAVBAR_TEXT_4.html">HEADER_NAVBAR_TEXT_4</a>
+                <a id="mobile-Our Walkers-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="Our Walkers.html">Our Walkers</a>
               </li>
               <li>
-                <a id="mobile-HEADER_NAVBAR_TEXT_5-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="HEADER_NAVBAR_TEXT_5.html">HEADER_NAVBAR_TEXT_5</a>
+                <a id="mobile-Contact-link" class="flex font-medium text-sm py-1.5 text-slate-300 hover:text-white" href="Contact.html">Contact</a>
               </li>
             </ul>
           </nav>
