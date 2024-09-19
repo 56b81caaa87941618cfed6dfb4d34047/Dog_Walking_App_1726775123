@@ -1,71 +1,137 @@
-<!-- 
-INSTRUCTION: Summary: The section has a blurred radial gradient background and a call-to-action (CTA) content block.
-INSTRUCTION: It is centered on the page and includes a gradient-based title, a subtitle, a paragraph of text, and a button with a gradient background.
--->
-
 <template>
-  <section id="cta-section-container">
-    <div id="section-container" class="max-w-6xl mx-auto px-4 sm:px-6 bg-white">
-      <div id="content-container" class="relative px-8 py-12 md:py-20 rounded-[3rem] overflow-hidden">
-
-        <!-- Radial gradient -->
-        <div id="radial-gradient" class="absolute flex items-center justify-center top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-          <div id="radial-gradient-outer" class="bg-purple-500 absolute inset-0 translate-z-0 rounded-full blur-[120px] opacity-70"></div>
-          <div id="radial-gradient-inner" class="absolute w-1/4 h-1/4 translate-z-0 rounded-full blur-[40px] bg-purple-400"></div>
-        </div>
-
-        <!-- Blurred shape -->
-        <div id="blurred-shape" class="absolute bottom-0 translate-y-1/2 left-0 blur-2xl opacity-50 pointer-events-none -z-10" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
-            <defs>
-              <linearGradient id="bs5-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
-                <stop offset="0%" class="#A855F7" />
-                <stop offset="100%" class="6366F1" stop-opacity="0" />
-              </linearGradient>
-            </defs>
-            <path fill="url(#bs5-a)" fill-rule="evenodd" d="m0 0 461 369-284 58z" transform="matrix(1 0 0 -1 0 427)" />
-          </svg>
-        </div>
-
-        <!-- Content -->
-        <div id="content" class="max-w-3xl mx-auto text-center">
-          <div id="content-subtitle" class="flex">
-            <div id="content-subtitle-text" class="flex-1 font-medium bg-clip-text pb-3 text-transparent bg-gradient-to-r from-purple-500 to-purple-200">
-              Transform Daily Walks into Tail-Wagging Adventures
-            </div>
-          </div>
-          <div class="flex" id="content-title-container">
-            <h2 id="content-title" class="flex-1 h2 bg-clip-text pb-4 bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60">
-              Walk This Way: Your Ultimate Dog Walking Companion
-            </h2>
-          </div>
-          <div class="flex" id="content-body-container">
-            <p id="content-body" class="flex-1 text-lg mb-8 text-slate-400">
-              Simplify your dog's exercise routine and make every walk an adventure with our innovative app designed for pet lovers and their furry friends.
-            </p>
-          </div>
-          <a id="content-cta-button" href="#0" class="btn transition duration-150 ease-in-out group text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white">
-            Get Started
-            <span id="content-cta-arrow" class="tracking-normal group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1 text-purple-500">-&gt;</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div id="pong-game" class="max-w-6xl mx-auto px-4 sm:px-6 bg-white">
+    <canvas id="pongCanvas" width="800" height="400" class="border border-purple-500 rounded-lg shadow-lg mx-auto"></canvas>
+    <div class="text-center mt-4 text-lg text-purple-600">Use W/S keys for left paddle, Up/Down arrow keys for right paddle</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "PurpleBackgroundCtaComponent",
-  data() {
-    return {
-      expanded: false,
-      tab: null
-    };
+  name: "PongGameComponent",
+  mounted() {
+    this.initGame();
+  },
+  methods: {
+    initGame() {
+      const canvas = document.getElementById('pongCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Game objects
+      const ball = {
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        radius: 10,
+        speed: 5,
+        dx: 5,
+        dy: 5
+      };
+      
+      const paddleHeight = 100;
+      const paddleWidth = 10;
+      
+      const leftPaddle = {
+        x: 0,
+        y: canvas.height / 2 - paddleHeight / 2,
+        width: paddleWidth,
+        height: paddleHeight,
+        dy: 5
+      };
+      
+      const rightPaddle = {
+        x: canvas.width - paddleWidth,
+        y: canvas.height / 2 - paddleHeight / 2,
+        width: paddleWidth,
+        height: paddleHeight,
+        dy: 5
+      };
+      
+      // Key states
+      const keys = {
+        w: false,
+        s: false,
+        ArrowUp: false,
+        ArrowDown: false
+      };
+      
+      // Event listeners for key presses
+      document.addEventListener('keydown', (e) => {
+        if (e.key in keys) {
+          keys[e.key] = true;
+        }
+      });
+      
+      document.addEventListener('keyup', (e) => {
+        if (e.key in keys) {
+          keys[e.key] = false;
+        }
+      });
+      
+      // Game loop
+      function gameLoop() {
+        update();
+        draw();
+        requestAnimationFrame(gameLoop);
+      }
+      
+      function update() {
+        // Move paddles
+        if (keys.w && leftPaddle.y > 0) {
+          leftPaddle.y -= leftPaddle.dy;
+        }
+        if (keys.s && leftPaddle.y < canvas.height - leftPaddle.height) {
+          leftPaddle.y += leftPaddle.dy;
+        }
+        if (keys.ArrowUp && rightPaddle.y > 0) {
+          rightPaddle.y -= rightPaddle.dy;
+        }
+        if (keys.ArrowDown && rightPaddle.y < canvas.height - rightPaddle.height) {
+          rightPaddle.y += rightPaddle.dy;
+        }
+        
+        // Move ball
+        ball.x += ball.dx;
+        ball.y += ball.dy;
+        
+        // Ball collision with top and bottom walls
+        if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+          ball.dy *= -1;
+        }
+        
+        // Ball collision with paddles
+        if (
+          (ball.x - ball.radius < leftPaddle.x + leftPaddle.width && ball.y > leftPaddle.y && ball.y < leftPaddle.y + leftPaddle.height) ||
+          (ball.x + ball.radius > rightPaddle.x && ball.y > rightPaddle.y && ball.y < rightPaddle.y + rightPaddle.height)
+        ) {
+          ball.dx *= -1;
+        }
+        
+        // Reset ball if it goes out of bounds
+        if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+          ball.x = canvas.width / 2;
+          ball.y = canvas.height / 2;
+        }
+      }
+      
+      function draw() {
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw paddles
+        ctx.fillStyle = '#A855F7';
+        ctx.fillRect(leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height);
+        ctx.fillRect(rightPaddle.x, rightPaddle.y, rightPaddle.width, rightPaddle.height);
+        
+        // Draw ball
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#A855F7';
+        ctx.fill();
+        ctx.closePath();
+      }
+      
+      // Start the game loop
+      gameLoop();
+    }
   }
 };
 </script>
-
-<style scoped>
-/* Add any scoped styles if necessary */
-</style>
