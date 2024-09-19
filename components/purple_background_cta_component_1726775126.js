@@ -1,7 +1,9 @@
 <template>
-  <div id="pong-game" style="min-height: 630px" class="max-w-6xl mx-auto px-4 sm:px-6 bg-white">
-    <canvas id="pongCanvas" width="800" height="400" class="border border-purple-500 rounded-lg shadow-lg mx-auto"></canvas>
-    <div class="text-center mt-4 text-lg text-purple-600">Use W/S keys for left paddle, Up/Down arrow keys for right paddle</div>
+  <div id="pong-game" class="max-w-6xl mx-auto px-4 sm:px-6 bg-gradient-to-br from-pink-500 to-purple-700 min-h-[630px] py-12">
+    <div class="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg rounded-xl shadow-xl p-8">
+      <canvas id="pongCanvas" width="800" height="400" class="border-4 border-pink-300 rounded-lg shadow-lg mx-auto"></canvas>
+      <div class="text-center mt-6 text-lg text-pink-100 font-semibold">Use W/S keys for left paddle, Up/Down arrow keys for right paddle</div>
+    </div>
   </div>
 </template>
 
